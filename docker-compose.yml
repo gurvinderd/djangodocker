@@ -1,0 +1,45 @@
+version: '2'
+
+services:
+    anaconda3:
+        image: continuumio/anaconda3
+    dbpg:
+        image: postgres
+    dbsql:
+        image: mysql
+        volumes:
+            - db_data:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: password
+            MYSQL_DATABASE: django
+            MYSQL_USER: django
+            MYSQL_PASSWORD: django
+        ports:
+            - "3306:3306"
+        networks:
+            - webpage
+    web:
+     build: .
+     command: python3 manage.py runserver 0.0.0.0:8000
+     volumes:
+       - .:/code
+     ports:
+       - "8000:8000"
+     depends_on:
+       - dbpg
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        environment:
+            PMA_HOST: db
+            PMA_PORT: 3306
+            PMA_USER: django
+            PMA_PASSWORD: password
+        restart: always
+        ports:
+            - 8080:8080
+        depends_on:
+            - dbsql
+networks:
+  webpage:
+volumes:
+    db_data:

@@ -1,0 +1,73 @@
+docker-compose run web django-admin.py startproject composeexample .
+docker-compose -f docker/dev/docker-compose.yml up
+
+docker-compose run web python manage.py startapp polls
+docker-compose run web python manage.py startapp composeexample
+sudo chown -R $USER:$USER .
+docker-compose run web python manage.py runserver
+
+
+
+Start the docker
+
+$ docker-compose -f docker/dev/docker-compose.yml up
+Django
+
+Browse your site in http://127.0.0.1:8000/
+
+Start development code in django/ folder
+
+MySQL
+
+Connect to the MySQL through 127.0.0.1:3307
+username: root
+password: password
+
+The data are stored in docker/dev/volumes/db
+
+
+
+version: '2'
+
+services:
+  django:
+    build:
+      context: ../../
+      dockerfile: docker/dev/Dockerfile
+    volumes:
+      - ../../django:/srv/django
+    ports:
+      - "8000:8000"
+    links:
+      - db
+  db:
+    image: mysql:5.7
+    volumes:
+      - ./volumes/db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=django_dev
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci
+    ports:
+      - "3307:3306"
+	  
+	  
+	  
+'mysqldb': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django',
+        'USER': 'django',
+        'PASSWORD': 'django',
+        'HOST': 'dbsql',
+        'PORT': 3306,
+    }
+	
+    'defaulttt': {
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+		'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'HOST': 'dbpg',
+        'PORT': 5432,
+    },
