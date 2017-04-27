@@ -1,10 +1,14 @@
+docker-compose up
 docker-compose run web django-admin.py startproject composeexample .
 docker-compose -f docker/dev/docker-compose.yml up
 
 docker-compose run web python manage.py startapp polls
 docker-compose run web python manage.py startapp composeexample
+python manage.py startapp [app_label].
+
 sudo chown -R $USER:$USER .
-docker-compose run web python manage.py runserver
+docker-compose run web python manage.py runserver 
+docker-compose run web python manage.py runserver 0.0.0.0:8000
 
 
 

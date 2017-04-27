@@ -30,13 +30,13 @@ services:
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         environment:
-            PMA_HOST: db
+            PMA_HOST: dbsql
             PMA_PORT: 3306
             PMA_USER: django
             PMA_PASSWORD: password
         restart: always
         ports:
-            - 8080:8080
+            - "8080:8080"
         depends_on:
             - dbsql
 networks:
