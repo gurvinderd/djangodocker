@@ -79,3 +79,33 @@ services:
 http://192.168.99.100:8181/index.php
 192.168.99.100
 root/password
+
+https://blog.udemy.com/django-tutorial-getting-started-with-django/#views
+
+
+docker-compose up
+docker-compose up -d
+docker-compose run web django-admin startproject mybooks
+docker-compose run web python manage.py startapp books
+  Add app to setting.py installed apps
+docker-compose run web python manage.py runserver 0.0.0.0:8000
+Now create a model in apps models.py
+docker-compose run web python manage.py migrate
+docker-compose run web python manage.py makemigrations books
+  Interact with Python Shell inside container as below
+    docker-compose run web python manage.py shell
+    from books.models import Book
+    new_book = Book(title="Snow Crash", isbn="0553380958")
+    import datetime
+    new_book.read_on = datetime.datetime.now()
+    new_book.save()
+    new_book.id
+    Book.objects.all()
+    Book.objects.query(id=1)
+    qs = Book.objects.all()
+    str(qs.query)
+    qs = qs.order_by('title')
+    str(qs.query)
+
+
+
