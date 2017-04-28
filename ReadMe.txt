@@ -107,5 +107,10 @@ docker-compose run web python manage.py makemigrations books
     qs = qs.order_by('title')
     str(qs.query)
 
+Create django admin user using interactive shell
+  docker-compose run web python manage.py createsuperuser
+  gurvinder/dhillon.gurvinder@gmail.com/password123
+  
+
 
 
