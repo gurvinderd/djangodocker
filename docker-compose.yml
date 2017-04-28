@@ -1,8 +1,8 @@
 version: '2'
 
 services:
-    anaconda3:
-        image: continuumio/anaconda3
+    #anaconda3:
+     #   image: continuumio/anaconda3
     dbpg:
         image: postgres
     web:
