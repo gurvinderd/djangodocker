@@ -2,7 +2,7 @@ docker-compose up
 docker-compose run web django-admin.py startproject composeexample .
 docker-compose -f docker/dev/docker-compose.yml up
 
-docker-compose run web python manage.py startapp polls
+docker-compose run web python manage.py startapp myapps/polls
 docker-compose run web python manage.py startapp composeexample
 python manage.py startapp [app_label].
 
@@ -75,3 +75,7 @@ services:
         'HOST': 'dbpg',
         'PORT': 5432,
     },
+	
+http://192.168.99.100:8181/index.php
+192.168.99.100
+root/password
