@@ -1,7 +1,9 @@
-<h1>My Books!</h1>
- 
- <ul>
-   {% for book in books %}
-   <li>{{ book.title }}</li>
-   {% endfor %}
+ {% extends "base.html" %}
+ {% block content %}
+ <h1>My Books!</h1>  
+  <ul class="list-group">
+    {% for book in books %}
+    <li class="list-group-item">{{ book.title }}</li>
+    {% endfor %}
   </ul>
+ {% endblock %} 

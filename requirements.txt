@@ -1,4 +1,4 @@
 Django>=1.8,<2.0
-mysqlclient
 psycopg2
 SQLAlchemy
+mysqlclient

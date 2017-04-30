@@ -5,17 +5,6 @@ services:
      #   image: continuumio/anaconda3
     dbpg:
         image: postgres
-    web:
-     build: .
-     command: python3 manage.py runserver 0.0.0.0:8000
-     volumes:
-       - .:/code
-     ports:
-       - "8000:8000"
-     depends_on:
-       - dbpg
-     networks:
-       - webpage
     mysql:
         #name: mysql
         image: mysql
@@ -29,7 +18,23 @@ services:
         ports:
             - "3306:3306"
         networks:
-            - webpage
+            - webpage        
+    web:
+     # build: .
+     #image: gurvinder
+     #image: pythonws_web
+     image: gurvinderd/anaconda3-django:v2
+     command: python manage.py runserver 0.0.0.0:8000
+     volumes:
+       - .:/code
+     ports:
+       - "8000:8000"
+     depends_on:
+       - dbpg
+       - mysql
+     networks:
+       - webpage
+ 
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
         environment:

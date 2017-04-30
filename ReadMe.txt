@@ -110,7 +110,33 @@ docker-compose run web python manage.py makemigrations books
 Create django admin user using interactive shell
   docker-compose run web python manage.py createsuperuser
   gurvinder/dhillon.gurvinder@gmail.com/password123
-  
+
+install bootstrap
+docker-compose run web pip install django-bootstrap3
+
+
+
+Docker CheatSheet
+https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes
+docker ps -a -f status=exited
+docker rm $(docker ps -a -f status=exited -q)
+docker exec -it pythonws_web_1 bash
+docker tag <image-id of docker-whale> <your dockerhub username>/docker-whale:latest
+
+it
+docker exec -it containername bash
+python --version
+anaconda --version
+Show package details
+pip show packagename/django/django-bootstrap3
+django version : 
+python -m django --version
+django-admin.py version
+import django
+django.VERSION
+
+
+
 
 
 
