@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap3',
     'books',
+    'pollsapp',
     #'django_admin_bootstrapped.bootstrap3',
 ]
 
@@ -71,7 +72,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'composeexample.wsgi.application'
-
+#DATABASE_APPS_MAPPING = {'pollsapp': 'pollsapp_db', 'books': 'books_db'}
+#DATABASE_ROUTERS = ['pollsapp.dbRouter.PollsAppDBRouter', 'books.dbrouter.BooksDBRouter']
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
@@ -85,6 +87,22 @@ DATABASES = {
         'HOST': 'mysql',
         'PORT': 3306,
     },
+    # 'pollsapp_db': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'pollsapp_db',
+    #     'USER': 'root',
+    #     'PASSWORD': 'password',
+    #     'HOST': 'mysql',
+    #     'PORT': 3306,
+    # },
+    # 'books_db': {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'books_db',
+    #     'USER': 'root',
+    #     'PASSWORD': 'password',
+    #     'HOST': 'mysql',
+    #     'PORT': 3306,
+    # },
     'defaultttt': {
         # 'ENGINE': 'django.db.backends.sqlite3',
         # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
@@ -134,3 +152,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+

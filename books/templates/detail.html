@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+<ol class="breadcrumb">
+  <li><a href="/">My Books</a></li>
+  <li><a href="#">{{ book.title }}</a></li>
+</ol>
+</div>
+<h2>My Notes</h2>
+<p>
+{{ book.notes|default:"No notes" }}
+</p>
+<h4><a href="http://www.amazon.com/gp/product/{{ book.isbn }}">amazon link</a></h4>
+
+{% endblock %}

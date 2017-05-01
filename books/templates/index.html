@@ -1,9 +1,15 @@
  {% extends "base.html" %}
  {% block content %}
  <h1>My Books!</h1>  
+ <div class="page-header">
+	<ol class="breadcrumb">
+	  <li><a href="#">My Books</a></li>
+	  
+	</ol>
+ </div>
   <ul class="list-group">
     {% for book in books %}
-    <li class="list-group-item">{{ book.title }}</li>
+    <li class="list-group-item"><a href="/{{ book.id }}/">{{ book.title }}</a></li>
     {% endfor %}
   </ul>
  {% endblock %} 

@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from books.views import index
+from books.views import index, detail
 
 urlpatterns = [
 	url(r'^pollsapp/', include('pollsapp.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^$', index),
+    #url(r'^([/d]+)/$', detail),
+    url(r'^([\d]+)/$', detail),
 ]

@@ -92,6 +92,8 @@ docker-compose run web python manage.py runserver 0.0.0.0:8000
 Now create a model in apps models.py
 docker-compose run web python manage.py migrate
 docker-compose run web python manage.py makemigrations books
+python manage.py sqlmigrate polls 0001
+docker-compose run web python manage.py migrate books
   Interact with Python Shell inside container as below
     docker-compose run web python manage.py shell
     from books.models import Book
@@ -140,3 +142,5 @@ django.VERSION
 
 
 
+Django source files path
+python -c "import django; print(django.__path__)"
