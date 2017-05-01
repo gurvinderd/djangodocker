@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'bootstrap3',
     'books',
     'pollsapp',
+    'reviews',
     #'django_admin_bootstrapped.bootstrap3',
 ]
 
