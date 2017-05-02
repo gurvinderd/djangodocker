@@ -19,6 +19,7 @@ from books.views import index, detail
 
 urlpatterns = [
 	url(r'^pollsapp/', include('pollsapp.urls')),
+    url(r'^reviews/', include('reviews.urls', namespace="reviews")),
     url(r'^admin/', admin.site.urls),
     url(r'^$', index),
     #url(r'^([/d]+)/$', detail),
