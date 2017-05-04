@@ -1,3 +1,5 @@
+
+
 from django.db import models
 
 # Create your models here.
@@ -9,10 +11,18 @@ class Wine(models.Model):
     name = models.CharField(max_length=200)
     
     def average_rating(self):
-        all_ratings = map(lambda x: x.rating, self.review_set.all())
+        print(self.review_set.all())
+        print(self.review_set.values_list('rating', flat=True))
+        #all_ratings = map(lambda x: x.rating, self.review_set.values_list('rating', flat=True))
+        all_ratings = list(map(lambda x: x.rating, self.review_set.all()))
+        #print(list(all_ratings))
+        #print list((np.mean(all_ratings)))
+        print(np.mean(all_ratings))
         return np.mean(all_ratings)
+        #return self.review_set.all()
         
-    def __unicode__(self):
+        
+    def __str__(self):
         return self.name
 
 

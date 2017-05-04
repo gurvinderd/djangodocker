@@ -1,7 +1,11 @@
 
- {% extends "base.html" %}
- {% block content %}
+ {% extends "reviewsbase.html" %}
+ 
+ {% block title %}
 <h2>Latest reviews</h2>
+{% endblock %}
+
+{% block content %}
 <br/>
 {% if latest_review_list %}
 <div>

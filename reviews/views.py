@@ -29,7 +29,9 @@ def wine_list(request):
 
 def wine_detail(request, wine_id):
     wine = get_object_or_404(Wine, pk=wine_id)
-    return render(request, 'wine_detail.html', {'wine': wine})
+    #return render(request, 'wine_detail.html', {'wine': wine})
+    form = ReviewForm()
+    return render(request, 'wine_detail.html', {'wine': wine, 'form': form})
 
 
 def add_review(request, wine_id):
