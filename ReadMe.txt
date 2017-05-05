@@ -144,3 +144,5 @@ django.VERSION
 
 Django source files path
 python -c "import django; print(django.__path__)"
+
+https://www.codementor.io/jadianes/build-data-products-django-machine-learning-clustering-user-preferences-du107s5mk

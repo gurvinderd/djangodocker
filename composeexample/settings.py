@@ -55,6 +55,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'composeexample.urls'
+LOGIN_REDIRECT_URL = '/reviews/review/user'
 
 TEMPLATES = [
     {
