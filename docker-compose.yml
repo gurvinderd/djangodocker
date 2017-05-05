@@ -23,7 +23,7 @@ services:
      # build: .
      #image: gurvinder
      #image: pythonws_web
-     image: gurvinderd/anaconda3-django:v2
+     image: gurvinderd/anaconda3-django:v3
      command: python manage.py runserver 0.0.0.0:8000
      volumes:
        - .:/code

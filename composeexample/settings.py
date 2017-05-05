@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'books',
     'pollsapp',
     'reviews',
+    'registration',
     #'django_admin_bootstrapped.bootstrap3',
 ]
 
@@ -56,6 +57,8 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'composeexample.urls'
 LOGIN_REDIRECT_URL = '/reviews/review/user'
+ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window
+REGISTRATION_AUTO_LOGIN = True # Automatically log the user in.
 
 TEMPLATES = [
     {

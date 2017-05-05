@@ -21,6 +21,7 @@ urlpatterns = [
 	url(r'^pollsapp/', include('pollsapp.urls')),
     url(r'^reviews/', include('reviews.urls', namespace="reviews")),
     url(r'^admin/', admin.site.urls),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
     url('^accounts/', include('django.contrib.auth.urls', namespace="auth")),
     url(r'^$', index),
     #url(r'^([/d]+)/$', detail),

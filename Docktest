@@ -1,0 +1,10 @@
+
+FROM gurvinderd/anaconda3-django:v2
+RUN pip install -U django-registration-redux
+#RUN pip install -i https://pypi.anaconda.org/pypi/simple mysqlclient
+#ADD . /code/
+
+
+# install django, normally you would remove this step because your project would already
+# be installed in the code/app/ directory
+##run django-admin.py startproject website /home/docker/code/app/ 

@@ -115,6 +115,7 @@ Create django admin user using interactive shell
 
 install bootstrap
 docker-compose run web pip install django-bootstrap3
+docker-compose run web pip install django-registration-redux
 
 
 
@@ -146,3 +147,6 @@ Django source files path
 python -c "import django; print(django.__path__)"
 
 https://www.codementor.io/jadianes/build-data-products-django-machine-learning-clustering-user-preferences-du107s5mk
+
+docker build -t gurvinderd/anaconda3-django:v3 .
+docker run -it imagename
