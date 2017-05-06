@@ -22,7 +22,8 @@ urlpatterns = [
 
     # ex: /recommendation - get wine recommendations for the logged user
     #url(r'^recommendation/$', views.user_recommendation_list, name='user_recommendation_list'),
-    
+    # ex: /recommendation - get wine recommendations for the logged user
+    url(r'^recommendation/$', views.user_recommendation_list, name='user_recommendation_list'),
     
     
     

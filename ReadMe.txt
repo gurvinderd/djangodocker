@@ -95,6 +95,7 @@ docker-compose run web python manage.py makemigrations books
 python manage.py sqlmigrate polls 0001
 docker-compose run web python manage.py migrate books
   Interact with Python Shell inside container as below
+    docker exec -it web sh
     docker-compose run web python manage.py shell
     from books.models import Book
     new_book = Book(title="Snow Crash", isbn="0553380958")
@@ -121,6 +122,7 @@ docker-compose run web pip install django-registration-redux
 
 Docker CheatSheet
 https://www.digitalocean.com/community/tutorials/how-to-remove-docker-images-containers-and-volumes
+http://blog.zot24.com/tips-tricks-docker/
 docker ps -a -f status=exited
 docker rm $(docker ps -a -f status=exited -q)
 docker exec -it pythonws_web_1 bash
@@ -150,3 +152,11 @@ https://www.codementor.io/jadianes/build-data-products-django-machine-learning-c
 
 docker build -t gurvinderd/anaconda3-django:v3 .
 docker run -it imagename
+docker-compose up -d --no-recreate
+docker-compose up --no-recreate
+docker-compose run -it web
+
+docker exec -it web sh
+python load_users.py data/users.csv
+python load_wines.py data/wines.csv
+python load_reviews.py data/reviews.csv

@@ -5,9 +5,11 @@ services:
      #   image: continuumio/anaconda3
     dbpg:
         image: postgres
+        container_name: dbpg
     mysql:
         #name: mysql
         image: mysql
+        container_name: mysql
         volumes:
             - db_data:/var/lib/mysql
         environment:
@@ -24,6 +26,7 @@ services:
      #image: gurvinder
      #image: pythonws_web
      image: gurvinderd/anaconda3-django:v3
+     container_name: web
      command: python manage.py runserver 0.0.0.0:8000
      volumes:
        - .:/code
@@ -37,6 +40,7 @@ services:
  
     phpmyadmin:
         image: phpmyadmin/phpmyadmin
+        container_name: phpmyadmin
         environment:
             PMA_ARBITRARY: 1
             #PMA_HOST: mysql

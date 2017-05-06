@@ -70,6 +70,9 @@ def user_review_list(request, username=None):
 
 
 
+@login_required
+def user_recommendation_list(request):
+    return render(request, 'user_recommendation_list.html', {'username': request.user.username})
 
 
 
